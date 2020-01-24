@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		4BE02A5723DB306000ADA6F8 /* route_kit.h in Headers */ = {isa = PBXBuildFile; fileRef = 4BE02A5523DB306000ADA6F8 /* route_kit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4BE02A6323DB317700ADA6F8 /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE02A6223DB317700ADA6F8 /* Animator.swift */; };
+		4BE02A6523DB319600ADA6F8 /* FadeAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE02A6423DB319600ADA6F8 /* FadeAnimator.swift */; };
+		4BE02A6823DB322600ADA6F8 /* Transition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE02A6723DB322600ADA6F8 /* Transition.swift */; };
+		4BE02A6A23DB323400ADA6F8 /* ModalTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE02A6923DB323400ADA6F8 /* ModalTransition.swift */; };
+		4BE02A6C23DB324900ADA6F8 /* PushTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE02A6B23DB324900ADA6F8 /* PushTransition.swift */; };
+		4BE02A6F23DB326700ADA6F8 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE02A6E23DB326700ADA6F8 /* Router.swift */; };
+		4BE02A7223DB32AF00ADA6F8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE02A7123DB32AF00ADA6F8 /* ViewController.swift */; };
+		4BE02A7523DB350500ADA6F8 /* CloseRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE02A7423DB350500ADA6F8 /* CloseRoute.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -17,6 +25,15 @@
 		4BE02A5E23DB307E00ADA6F8 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		4BE02A5F23DB308500ADA6F8 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		4BE02A6023DB308B00ADA6F8 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
+		4BE02A6223DB317700ADA6F8 /* Animator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
+		4BE02A6423DB319600ADA6F8 /* FadeAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FadeAnimator.swift; sourceTree = "<group>"; };
+		4BE02A6723DB322600ADA6F8 /* Transition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transition.swift; sourceTree = "<group>"; };
+		4BE02A6923DB323400ADA6F8 /* ModalTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalTransition.swift; sourceTree = "<group>"; };
+		4BE02A6B23DB324900ADA6F8 /* PushTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushTransition.swift; sourceTree = "<group>"; };
+		4BE02A6E23DB326700ADA6F8 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		4BE02A7123DB32AF00ADA6F8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4BE02A7423DB350500ADA6F8 /* CloseRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseRoute.swift; sourceTree = "<group>"; };
+		4BE02A7623DB359000ADA6F8 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../../README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +66,11 @@
 		4BE02A5423DB306000ADA6F8 /* route-kit */ = {
 			isa = PBXGroup;
 			children = (
+				4BE02A6D23DB325F00ADA6F8 /* Router */,
+				4BE02A7323DB34F800ADA6F8 /* Routes */,
+				4BE02A6123DB314D00ADA6F8 /* Animators */,
+				4BE02A6623DB321800ADA6F8 /* Transitions */,
+				4BE02A7023DB329F00ADA6F8 /* Controllers */,
 				4BE02A5D23DB307500ADA6F8 /* Support Files */,
 			);
 			path = "route-kit";
@@ -57,6 +79,7 @@
 		4BE02A5D23DB307500ADA6F8 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
+				4BE02A7623DB359000ADA6F8 /* README.md */,
 				4BE02A5523DB306000ADA6F8 /* route_kit.h */,
 				4BE02A5623DB306000ADA6F8 /* Info.plist */,
 				4BE02A5E23DB307E00ADA6F8 /* Config.xcconfig */,
@@ -64,6 +87,49 @@
 				4BE02A6023DB308B00ADA6F8 /* Release.xcconfig */,
 			);
 			path = "Support Files";
+			sourceTree = "<group>";
+		};
+		4BE02A6123DB314D00ADA6F8 /* Animators */ = {
+			isa = PBXGroup;
+			children = (
+				4BE02A6223DB317700ADA6F8 /* Animator.swift */,
+				4BE02A6423DB319600ADA6F8 /* FadeAnimator.swift */,
+			);
+			path = Animators;
+			sourceTree = "<group>";
+		};
+		4BE02A6623DB321800ADA6F8 /* Transitions */ = {
+			isa = PBXGroup;
+			children = (
+				4BE02A6723DB322600ADA6F8 /* Transition.swift */,
+				4BE02A6923DB323400ADA6F8 /* ModalTransition.swift */,
+				4BE02A6B23DB324900ADA6F8 /* PushTransition.swift */,
+			);
+			path = Transitions;
+			sourceTree = "<group>";
+		};
+		4BE02A6D23DB325F00ADA6F8 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				4BE02A6E23DB326700ADA6F8 /* Router.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		4BE02A7023DB329F00ADA6F8 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4BE02A7123DB32AF00ADA6F8 /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		4BE02A7323DB34F800ADA6F8 /* Routes */ = {
+			isa = PBXGroup;
+			children = (
+				4BE02A7423DB350500ADA6F8 /* CloseRoute.swift */,
+			);
+			path = Routes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -109,6 +175,7 @@
 				TargetAttributes = {
 					4BE02A5123DB306000ADA6F8 = {
 						CreatedOnToolsVersion = 11.3.1;
+						LastSwiftMigration = 1130;
 					};
 				};
 			};
@@ -145,6 +212,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BE02A7523DB350500ADA6F8 /* CloseRoute.swift in Sources */,
+				4BE02A6C23DB324900ADA6F8 /* PushTransition.swift in Sources */,
+				4BE02A6A23DB323400ADA6F8 /* ModalTransition.swift in Sources */,
+				4BE02A6823DB322600ADA6F8 /* Transition.swift in Sources */,
+				4BE02A6523DB319600ADA6F8 /* FadeAnimator.swift in Sources */,
+				4BE02A7223DB32AF00ADA6F8 /* ViewController.swift in Sources */,
+				4BE02A6F23DB326700ADA6F8 /* Router.swift in Sources */,
+				4BE02A6323DB317700ADA6F8 /* Animator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,7 +278,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -261,7 +336,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -276,6 +351,7 @@
 		4BE02A5B23DB306000ADA6F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 84Z2AMFMF3;
@@ -288,16 +364,20 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mr-noone.route-kit";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		4BE02A5C23DB306000ADA6F8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 84Z2AMFMF3;
@@ -310,10 +390,12 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mr-noone.route-kit";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
