@@ -25,6 +25,8 @@ open class DimmingPresentationController: UIPresentationController {
   // MARK: - Override methods
   
   open override func presentationTransitionWillBegin() {
+    dimmingView.translatesAutoresizingMaskIntoConstraints = false
+    dimmingView.frame = containerView?.bounds ?? .zero
     containerView?.addSubview(dimmingView)
     
     presentedView?.frame = frameOfPresentedViewInContainerView
