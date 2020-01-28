@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B19159E23E0782D00775669 /* RootTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B19159D23E0782D00775669 /* RootTransition.swift */; };
 		4BE02A5723DB306000ADA6F8 /* route_kit.h in Headers */ = {isa = PBXBuildFile; fileRef = 4BE02A5523DB306000ADA6F8 /* route_kit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4BE02A6323DB317700ADA6F8 /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE02A6223DB317700ADA6F8 /* Animator.swift */; };
 		4BE02A6523DB319600ADA6F8 /* FadeAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE02A6423DB319600ADA6F8 /* FadeAnimator.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4B19159D23E0782D00775669 /* RootTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTransition.swift; sourceTree = "<group>"; };
 		4BE02A5223DB306000ADA6F8 /* RouteKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RouteKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BE02A5523DB306000ADA6F8 /* route_kit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = route_kit.h; sourceTree = "<group>"; };
 		4BE02A5623DB306000ADA6F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				4BE02A6723DB322600ADA6F8 /* Transition.swift */,
 				4BE02A6923DB323400ADA6F8 /* ModalTransition.swift */,
 				4BE02A6B23DB324900ADA6F8 /* PushTransition.swift */,
+				4B19159D23E0782D00775669 /* RootTransition.swift */,
 			);
 			path = Transitions;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4BE02A7523DB350500ADA6F8 /* CloseRoute.swift in Sources */,
+				4B19159E23E0782D00775669 /* RootTransition.swift in Sources */,
 				4BE02A6C23DB324900ADA6F8 /* PushTransition.swift in Sources */,
 				4BE02A6A23DB323400ADA6F8 /* ModalTransition.swift in Sources */,
 				4BE02A6823DB322600ADA6F8 /* Transition.swift in Sources */,
