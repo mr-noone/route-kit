@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		4B19159E23E0782D00775669 /* RootTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B19159D23E0782D00775669 /* RootTransition.swift */; };
 		4B1915A123E07A1E00775669 /* DimmingPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1915A023E07A1E00775669 /* DimmingPresentationController.swift */; };
+		4B58BEFF23E08A0900BFF4E3 /* ActionPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B58BEFE23E08A0900BFF4E3 /* ActionPresentationController.swift */; };
+		4B58BF0123E08B8C00BFF4E3 /* ActionTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B58BF0023E08B8C00BFF4E3 /* ActionTransition.swift */; };
 		4BA736B923E07CF300DC48BA /* AlertPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA736B823E07CF300DC48BA /* AlertPresentationController.swift */; };
 		4BA736BB23E07D9E00DC48BA /* AlertTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA736BA23E07D9E00DC48BA /* AlertTransition.swift */; };
 		4BE02A5723DB306000ADA6F8 /* route_kit.h in Headers */ = {isa = PBXBuildFile; fileRef = 4BE02A5523DB306000ADA6F8 /* route_kit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -25,6 +27,8 @@
 /* Begin PBXFileReference section */
 		4B19159D23E0782D00775669 /* RootTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTransition.swift; sourceTree = "<group>"; };
 		4B1915A023E07A1E00775669 /* DimmingPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimmingPresentationController.swift; sourceTree = "<group>"; };
+		4B58BEFE23E08A0900BFF4E3 /* ActionPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionPresentationController.swift; sourceTree = "<group>"; };
+		4B58BF0023E08B8C00BFF4E3 /* ActionTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionTransition.swift; sourceTree = "<group>"; };
 		4BA736B823E07CF300DC48BA /* AlertPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresentationController.swift; sourceTree = "<group>"; };
 		4BA736BA23E07D9E00DC48BA /* AlertTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertTransition.swift; sourceTree = "<group>"; };
 		4BE02A5223DB306000ADA6F8 /* RouteKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RouteKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,6 +64,7 @@
 			children = (
 				4B1915A023E07A1E00775669 /* DimmingPresentationController.swift */,
 				4BA736B823E07CF300DC48BA /* AlertPresentationController.swift */,
+				4B58BEFE23E08A0900BFF4E3 /* ActionPresentationController.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -124,6 +129,7 @@
 				4BE02A6B23DB324900ADA6F8 /* PushTransition.swift */,
 				4B19159D23E0782D00775669 /* RootTransition.swift */,
 				4BA736BA23E07D9E00DC48BA /* AlertTransition.swift */,
+				4B58BF0023E08B8C00BFF4E3 /* ActionTransition.swift */,
 			);
 			path = Transitions;
 			sourceTree = "<group>";
@@ -234,6 +240,7 @@
 			files = (
 				4BE02A7523DB350500ADA6F8 /* CloseRoute.swift in Sources */,
 				4B1915A123E07A1E00775669 /* DimmingPresentationController.swift in Sources */,
+				4B58BF0123E08B8C00BFF4E3 /* ActionTransition.swift in Sources */,
 				4B19159E23E0782D00775669 /* RootTransition.swift in Sources */,
 				4BA736BB23E07D9E00DC48BA /* AlertTransition.swift in Sources */,
 				4BE02A6C23DB324900ADA6F8 /* PushTransition.swift in Sources */,
@@ -243,6 +250,7 @@
 				4BE02A7223DB32AF00ADA6F8 /* ViewController.swift in Sources */,
 				4BE02A6F23DB326700ADA6F8 /* Router.swift in Sources */,
 				4BE02A6323DB317700ADA6F8 /* Animator.swift in Sources */,
+				4B58BEFF23E08A0900BFF4E3 /* ActionPresentationController.swift in Sources */,
 				4BA736B923E07CF300DC48BA /* AlertPresentationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
