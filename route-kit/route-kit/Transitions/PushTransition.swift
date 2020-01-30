@@ -21,8 +21,18 @@ public final class PushTransition: Transition {
   
   public init(fromViewController: UIViewController?, animator: Animator? = nil, popCount: Int = 0) {
     self.popCount = popCount
-    super.init(fromViewController: fromViewController, animator: animator)
-    navigation?.delegate = NavigationDelegate.default
+    
+    switch popCount {
+    case 0:
+      super.init(fromViewController: fromViewController, animator: animator)
+    default:
+      let vcCount = fromViewController?.navigationController?.viewControllers.count ?? 0
+      let vcArray = fromViewController?.navigationController?.viewControllers ?? []
+      let fromViewController = vcArray[vcCount - (popCount + 1)]
+      super.init(fromViewController: fromViewController, animator: animator)
+    }
+    
+    navigation.delegate = NavigationDelegate.default
     NavigationDelegate.default.addTransition(self)
   }
   
@@ -43,7 +53,7 @@ public final class PushTransition: Transition {
   
   public override func close(_ viewController: UIViewController, animated: Bool, completion: Transition.Completion?) {
     self.completion = completion
-    navigation?.popViewController(animated: animated)
+    navigation.popViewController(animated: animated)
   }
 }
 
