@@ -12,13 +12,15 @@ public final class PushTransition: Transition {
   // MARK: - Properties
   
   fileprivate var completion: Completion?
-  private var navigation: UINavigationController? {
+  private var popCount: Int
+  private var navigation: UINavigationController! {
     return fromViewController?.navigationController
   }
   
   // MARK: - Inits
   
-  public override init(fromViewController: UIViewController?, animator: Animator? = nil) {
+  public init(fromViewController: UIViewController?, animator: Animator? = nil, popCount: Int = 0) {
+    self.popCount = popCount
     super.init(fromViewController: fromViewController, animator: animator)
     navigation?.delegate = NavigationDelegate.default
     NavigationDelegate.default.addTransition(self)
@@ -28,7 +30,15 @@ public final class PushTransition: Transition {
   
   public override func open(_ viewController: UIViewController, animated: Bool, completion: Transition.Completion?) {
     self.completion = completion
-    navigation?.pushViewController(viewController, animated: animated)
+    switch popCount {
+    case 0:
+      navigation.pushViewController(viewController, animated: animated)
+    default:
+      let vcCount = navigation.viewControllers.count
+      let vcSlice = navigation.viewControllers[0..<(vcCount - popCount)]
+      let vcArray = Array(vcSlice) + [viewController]
+      navigation.setViewControllers(vcArray, animated: animated)
+    }
   }
   
   public override func close(_ viewController: UIViewController, animated: Bool, completion: Transition.Completion?) {
