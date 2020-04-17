@@ -1,14 +1,14 @@
 //
-//  ActionPresentationController.swift
+//  DismissPresentationController.swift
 //  route-kit
 //
-//  Created by Aleksey Zgurskiy on 28.01.2020.
+//  Created by Aleksey Zgurskiy on 17.04.2020.
 //  Copyright © 2020 mr.noone. All rights reserved.
 //
 
 import UIKit
 
-public final class ActionPresentationController: DimmingPresentationController {
+open class DismissPresentationController: DimmingPresentationController {
   // MARK: - Private properties
   
   private var transition: TransitionProtocol
@@ -18,29 +18,6 @@ public final class ActionPresentationController: DimmingPresentationController {
     view.addTarget(self, action: #selector(dismiss), for: .touchUpInside)
     return view
   }()
-  
-  // MARK: - Override properties
-  
-  public override var frameOfPresentedViewInContainerView: CGRect {
-    let maxSize = containerView?.bounds.size ?? .zero
-    let targetSize = CGSize(width: maxSize.width - 28, height: 0)
-    
-    let size = presentedView?.systemLayoutSizeFitting(
-      targetSize,
-      withHorizontalFittingPriority: .required,
-      verticalFittingPriority: .fittingSizeLevel
-    ) ?? .zero
-    
-    let insets: UIEdgeInsets
-    if #available(iOS 11.0, *) {
-      insets = containerView?.safeAreaInsets ?? .zero
-    } else {
-      insets = .zero
-    }
-    
-    let origin = CGPoint(x: 14, y: maxSize.height - size.height - 14 - insets.bottom)
-    return .init(origin: origin, size: size)
-  }
   
   // MARK: - Inits
   

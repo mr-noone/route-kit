@@ -9,10 +9,6 @@
 /* Begin PBXBuildFile section */
 		4B19159E23E0782D00775669 /* RootTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B19159D23E0782D00775669 /* RootTransition.swift */; };
 		4B1915A123E07A1E00775669 /* DimmingPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1915A023E07A1E00775669 /* DimmingPresentationController.swift */; };
-		4B58BEFF23E08A0900BFF4E3 /* ActionPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B58BEFE23E08A0900BFF4E3 /* ActionPresentationController.swift */; };
-		4B58BF0123E08B8C00BFF4E3 /* ActionTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B58BF0023E08B8C00BFF4E3 /* ActionTransition.swift */; };
-		4BA736B923E07CF300DC48BA /* AlertPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA736B823E07CF300DC48BA /* AlertPresentationController.swift */; };
-		4BA736BB23E07D9E00DC48BA /* AlertTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA736BA23E07D9E00DC48BA /* AlertTransition.swift */; };
 		4BE02A5723DB306000ADA6F8 /* route_kit.h in Headers */ = {isa = PBXBuildFile; fileRef = 4BE02A5523DB306000ADA6F8 /* route_kit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4BE02A6323DB317700ADA6F8 /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE02A6223DB317700ADA6F8 /* Animator.swift */; };
 		4BE02A6523DB319600ADA6F8 /* FadeAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE02A6423DB319600ADA6F8 /* FadeAnimator.swift */; };
@@ -22,15 +18,12 @@
 		4BE02A6F23DB326700ADA6F8 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE02A6E23DB326700ADA6F8 /* Router.swift */; };
 		4BE02A7223DB32AF00ADA6F8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE02A7123DB32AF00ADA6F8 /* ViewController.swift */; };
 		4BE02A7523DB350500ADA6F8 /* CloseRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE02A7423DB350500ADA6F8 /* CloseRoute.swift */; };
+		4BF269442449AC2E008B2BC2 /* DismissPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF269432449AC2E008B2BC2 /* DismissPresentationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4B19159D23E0782D00775669 /* RootTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTransition.swift; sourceTree = "<group>"; };
 		4B1915A023E07A1E00775669 /* DimmingPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimmingPresentationController.swift; sourceTree = "<group>"; };
-		4B58BEFE23E08A0900BFF4E3 /* ActionPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionPresentationController.swift; sourceTree = "<group>"; };
-		4B58BF0023E08B8C00BFF4E3 /* ActionTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionTransition.swift; sourceTree = "<group>"; };
-		4BA736B823E07CF300DC48BA /* AlertPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertPresentationController.swift; sourceTree = "<group>"; };
-		4BA736BA23E07D9E00DC48BA /* AlertTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertTransition.swift; sourceTree = "<group>"; };
 		4BE02A5223DB306000ADA6F8 /* RouteKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RouteKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BE02A5523DB306000ADA6F8 /* route_kit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = route_kit.h; sourceTree = "<group>"; };
 		4BE02A5623DB306000ADA6F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -46,6 +39,7 @@
 		4BE02A7123DB32AF00ADA6F8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4BE02A7423DB350500ADA6F8 /* CloseRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseRoute.swift; sourceTree = "<group>"; };
 		4BE02A7623DB359000ADA6F8 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../../README.md; sourceTree = "<group>"; };
+		4BF269432449AC2E008B2BC2 /* DismissPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissPresentationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,8 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				4B1915A023E07A1E00775669 /* DimmingPresentationController.swift */,
-				4BA736B823E07CF300DC48BA /* AlertPresentationController.swift */,
-				4B58BEFE23E08A0900BFF4E3 /* ActionPresentationController.swift */,
+				4BF269432449AC2E008B2BC2 /* DismissPresentationController.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -128,8 +121,6 @@
 				4BE02A6923DB323400ADA6F8 /* ModalTransition.swift */,
 				4BE02A6B23DB324900ADA6F8 /* PushTransition.swift */,
 				4B19159D23E0782D00775669 /* RootTransition.swift */,
-				4BA736BA23E07D9E00DC48BA /* AlertTransition.swift */,
-				4B58BF0023E08B8C00BFF4E3 /* ActionTransition.swift */,
 			);
 			path = Transitions;
 			sourceTree = "<group>";
@@ -240,18 +231,15 @@
 			files = (
 				4BE02A7523DB350500ADA6F8 /* CloseRoute.swift in Sources */,
 				4B1915A123E07A1E00775669 /* DimmingPresentationController.swift in Sources */,
-				4B58BF0123E08B8C00BFF4E3 /* ActionTransition.swift in Sources */,
 				4B19159E23E0782D00775669 /* RootTransition.swift in Sources */,
-				4BA736BB23E07D9E00DC48BA /* AlertTransition.swift in Sources */,
 				4BE02A6C23DB324900ADA6F8 /* PushTransition.swift in Sources */,
 				4BE02A6A23DB323400ADA6F8 /* ModalTransition.swift in Sources */,
+				4BF269442449AC2E008B2BC2 /* DismissPresentationController.swift in Sources */,
 				4BE02A6823DB322600ADA6F8 /* Transition.swift in Sources */,
 				4BE02A6523DB319600ADA6F8 /* FadeAnimator.swift in Sources */,
 				4BE02A7223DB32AF00ADA6F8 /* ViewController.swift in Sources */,
 				4BE02A6F23DB326700ADA6F8 /* Router.swift in Sources */,
 				4BE02A6323DB317700ADA6F8 /* Animator.swift in Sources */,
-				4B58BEFF23E08A0900BFF4E3 /* ActionPresentationController.swift in Sources */,
-				4BA736B923E07CF300DC48BA /* AlertPresentationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,7 +384,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.1;
+				MARKETING_VERSION = 2.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mr-noone.route-kit";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
@@ -422,7 +410,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.1;
+				MARKETING_VERSION = 2.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mr-noone.route-kit";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;

@@ -13,6 +13,8 @@ open class DimmingPresentationController: UIPresentationController {
   
   open var dimmingView: UIView = {
     let view = UIView()
+    view.isUserInteractionEnabled = false
+    view.alpha = 0.0
     let color = UIColor(red: 0.32, green: 0.32, blue: 0.32, alpha: 0.4)
     if #available(iOS 11.0, *) {
       view.backgroundColor = UIColor(named: "dimmingColor") ?? color
