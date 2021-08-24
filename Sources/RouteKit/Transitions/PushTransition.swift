@@ -11,9 +11,9 @@ import UIKit
 public final class PushTransition: Transition {
   // MARK: - Properties
   
-  fileprivate var completion: Completion?
   private var popCount: Int
-  private var navigation: UINavigationController! {
+  fileprivate var completion: Completion?
+  fileprivate var navigation: UINavigationController! {
     return fromViewController?.navigationController
   }
   
@@ -33,6 +33,7 @@ public final class PushTransition: Transition {
     }
     
     navigation.delegate = NavigationDelegate.default
+    navigation.interactivePopGestureRecognizer?.delegate = NavigationDelegate.default
     NavigationDelegate.default.addTransition(self)
   }
   
@@ -57,7 +58,7 @@ public final class PushTransition: Transition {
   }
 }
 
-private final class NavigationDelegate: NSObject, UINavigationControllerDelegate {
+private final class NavigationDelegate: NSObject, UIGestureRecognizerDelegate, UINavigationControllerDelegate {
   // MARK: - Properties
   
   static let `default` = NavigationDelegate()
@@ -72,18 +73,24 @@ private final class NavigationDelegate: NSObject, UINavigationControllerDelegate
     transitions.addPointer(Unmanaged.passUnretained(transition).toOpaque())
   }
   
+  // MARK: - UIGestureRecognizerDelegate
+  
+  func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+    return currentTransition?.navigation.viewControllers.count ?? 0 > 1
+  }
+  
   // MARK: - UINavigationControllerDelegate
   
-  public func navigationController(_ navigationController: UINavigationController,
-                                   didShow viewController: UIViewController,
-                                   animated: Bool) {
+  func navigationController(_ navigationController: UINavigationController,
+                            didShow viewController: UIViewController,
+                            animated: Bool) {
     currentTransition?.completion?()
   }
   
-  public func navigationController(_ navigationController: UINavigationController,
-                                   animationControllerFor operation: UINavigationController.Operation,
-                                   from fromVC: UIViewController,
-                                   to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+  func navigationController(_ navigationController: UINavigationController,
+                            animationControllerFor operation: UINavigationController.Operation,
+                            from fromVC: UIViewController,
+                            to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
     currentTransition?.animator?.isPresenting = operation == .push
     return currentTransition?.animator
   }
