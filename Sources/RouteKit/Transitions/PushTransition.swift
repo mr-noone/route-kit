@@ -9,7 +9,7 @@ open class PushTransition: NSObject, DismissableTransition {
   
   // MARK: - Inits
   
-  public init(navigationController: UINavigationController, popCount: Int = 0) {
+  public init(navigationController: UINavigationController?, popCount: Int = 0) {
     self.navigationController = navigationController
     self.popCount = popCount
     
@@ -48,6 +48,7 @@ open class PushTransition: NSObject, DismissableTransition {
   
   func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
     completion?()
+    completion = nil
   }
   
   open func navigationController(
