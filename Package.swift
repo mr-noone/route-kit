@@ -10,6 +10,6 @@ let package = Package(
     .library(name: "RouteKit", targets: ["RouteKit"])
   ],
   targets: [
-    .target(name: "RouteKit", dependencies: [])
+    .target(name: "RouteKit")
   ]
 )
