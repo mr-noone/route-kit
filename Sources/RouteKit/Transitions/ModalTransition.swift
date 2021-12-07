@@ -1,15 +1,15 @@
 import UIKit
 
-open class ModalTransition<From: UIViewController, To: UIViewController>: NSObject, DismissableTransition, UIViewControllerTransitioningDelegate {
+open class ModalTransition: NSObject, DismissableTransition, UIViewControllerTransitioningDelegate {
   // MARK: - Properties
   
-  public private(set) weak var fromViewController: From?
+  public private(set) weak var fromViewController: UIViewController?
   private let transitionStyle: UIModalTransitionStyle
   private let presentationStyle: UIModalPresentationStyle
   
   // MARK: - Inits
   
-  public init(fromViewController viewController: From?,
+  public init(fromViewController viewController: UIViewController?,
               transitionStyle: UIModalTransitionStyle = .coverVertical,
               presentationStyle: UIModalPresentationStyle = .default) {
     self.fromViewController = viewController
@@ -19,14 +19,14 @@ open class ModalTransition<From: UIViewController, To: UIViewController>: NSObje
   
   // MARK: - DismissableTransition
   
-  public func present(_ viewController: To, animated: Bool, completion: Completion?) {
+  open func present(_ viewController: UIViewController, animated: Bool, completion: Completion?) {
     viewController.transitioningDelegate = self
     viewController.modalTransitionStyle = transitionStyle
     viewController.modalPresentationStyle = presentationStyle
     fromViewController?.present(viewController, animated: animated, completion: completion)
   }
   
-  public func dismiss(_ viewController: To, animated: Bool, completion: Completion?) {
+  open func dismiss(_ viewController: UIViewController, animated: Bool, completion: Completion?) {
     viewController.transitioningDelegate = self
     viewController.modalTransitionStyle = transitionStyle
     viewController.modalPresentationStyle = presentationStyle
