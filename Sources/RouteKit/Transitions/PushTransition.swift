@@ -1,60 +1,70 @@
-//
-//  PushTransition.swift
-//  route-kit
-//
-//  Created by Aleksey Zgurskiy on 24.01.2020.
-//  Copyright © 2020 mr.noone. All rights reserved.
-//
-
 import UIKit
 
-public final class PushTransition: Transition {
+open class PushTransition: NSObject, DismissableTransition {
   // MARK: - Properties
   
-  private var popCount: Int
-  fileprivate var completion: Completion?
-  fileprivate var navigation: UINavigationController! {
-    return fromViewController?.navigationController
-  }
+  public private(set) weak var navigationController: UINavigationController?
+  private var completion: Completion?
+  private let popCount: Int
   
   // MARK: - Inits
   
-  public init(fromViewController: UIViewController?, animator: Animator? = nil, popCount: Int = 0) {
+  public init(navigationController: UINavigationController?, popCount: Int = 0) {
+    self.navigationController = navigationController
     self.popCount = popCount
     
-    switch popCount {
-    case 0:
-      super.init(fromViewController: fromViewController, animator: animator)
-    default:
-      let vcCount = fromViewController?.navigationController?.viewControllers.count ?? 0
-      let vcArray = fromViewController?.navigationController?.viewControllers ?? []
-      let fromViewController = vcArray[vcCount - (popCount + 1)]
-      super.init(fromViewController: fromViewController, animator: animator)
-    }
+    super.init()
     
-    navigation.delegate = NavigationDelegate.default
-    navigation.interactivePopGestureRecognizer?.delegate = NavigationDelegate.default
+    self.navigationController?.delegate = NavigationDelegate.default
+    self.navigationController?.interactivePopGestureRecognizer?.delegate = NavigationDelegate.default
     NavigationDelegate.default.addTransition(self)
   }
   
-  // MARK: - Transition methods
+  // MARK: - DismissableTransition
   
-  public override func open(_ viewController: UIViewController, animated: Bool, completion: Transition.Completion?) {
+  open func present(_ viewController: UIViewController, animated: Bool, completion: Completion?) {
     self.completion = completion
     switch popCount {
     case 0:
-      navigation.pushViewController(viewController, animated: animated)
+      navigationController?.pushViewController(viewController, animated: animated)
     default:
-      let vcCount = navigation.viewControllers.count
-      let vcSlice = navigation.viewControllers[0..<(vcCount - popCount)]
+      let vcCount = navigationController?.viewControllers.count ?? 0
+      let vcSlice = navigationController?.viewControllers[0..<(vcCount - popCount)] ?? []
       let vcArray = Array(vcSlice) + [viewController]
-      navigation.setViewControllers(vcArray, animated: animated)
+      navigationController?.setViewControllers(vcArray, animated: animated)
     }
   }
   
-  public override func close(_ viewController: UIViewController, animated: Bool, completion: Transition.Completion?) {
+  open func dismiss(_ viewController: UIViewController, animated: Bool, completion: Completion?) {
     self.completion = completion
-    navigation.popViewController(animated: animated)
+    navigationController?.popViewController(animated: animated)
+  }
+  
+  // MARK: - Methods
+  
+  open func interactivePopGestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+    return navigationController?.viewControllers.count ?? 0 > 1
+  }
+  
+  func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+    completion?()
+    completion = nil
+  }
+  
+  open func navigationController(
+    _ navigationController: UINavigationController,
+    interactionControllerFor animationController: UIViewControllerAnimatedTransitioning
+  ) -> UIViewControllerInteractiveTransitioning? {
+    return nil
+  }
+  
+  open func navigationController(
+    _ navigationController: UINavigationController,
+    animationControllerFor operation: UINavigationController.Operation,
+    from fromVC: UIViewController,
+    to toVC: UIViewController
+  ) -> UIViewControllerAnimatedTransitioning? {
+    return nil
   }
 }
 
@@ -62,6 +72,7 @@ private final class NavigationDelegate: NSObject, UIGestureRecognizerDelegate, U
   // MARK: - Properties
   
   static let `default` = NavigationDelegate()
+  
   private let transitions = NSPointerArray.weakObjects()
   private var currentTransition: PushTransition? {
     return transitions.allObjects.last as? PushTransition
@@ -76,22 +87,44 @@ private final class NavigationDelegate: NSObject, UIGestureRecognizerDelegate, U
   // MARK: - UIGestureRecognizerDelegate
   
   func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-    return currentTransition?.navigation.viewControllers.count ?? 0 > 1
+    return currentTransition?.interactivePopGestureRecognizerShouldBegin(gestureRecognizer) ?? true
   }
   
   // MARK: - UINavigationControllerDelegate
   
-  func navigationController(_ navigationController: UINavigationController,
-                            didShow viewController: UIViewController,
-                            animated: Bool) {
-    currentTransition?.completion?()
+  func navigationController(
+    _ navigationController: UINavigationController,
+    didShow viewController: UIViewController,
+    animated: Bool
+  ) {
+    currentTransition?.navigationController(
+      navigationController,
+      didShow: viewController,
+      animated: animated
+    )
   }
   
-  func navigationController(_ navigationController: UINavigationController,
-                            animationControllerFor operation: UINavigationController.Operation,
-                            from fromVC: UIViewController,
-                            to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-    currentTransition?.animator?.isPresenting = operation == .push
-    return currentTransition?.animator
+  func navigationController(
+    _ navigationController: UINavigationController,
+    interactionControllerFor animationController: UIViewControllerAnimatedTransitioning
+  ) -> UIViewControllerInteractiveTransitioning? {
+    return currentTransition?.navigationController(
+      navigationController,
+      interactionControllerFor: animationController
+    )
+  }
+  
+  func navigationController(
+    _ navigationController: UINavigationController,
+    animationControllerFor operation: UINavigationController.Operation,
+    from fromVC: UIViewController,
+    to toVC: UIViewController
+  ) -> UIViewControllerAnimatedTransitioning? {
+    return currentTransition?.navigationController(
+      navigationController,
+      animationControllerFor: operation,
+      from: fromVC,
+      to: toVC
+    )
   }
 }
