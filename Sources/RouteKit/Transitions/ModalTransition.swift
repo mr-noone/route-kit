@@ -1,68 +1,46 @@
-//
-//  ModalTransition.swift
-//  route-kit
-//
-//  Created by Aleksey Zgurskiy on 24.01.2020.
-//  Copyright © 2020 mr.noone. All rights reserved.
-//
-
 import UIKit
 
-public extension UIModalPresentationStyle {
-  static var `default`: UIModalPresentationStyle {
-    if #available(iOS 13.0, *) {
-      return .automatic
-    } else {
-      return .fullScreen
-    }
-  }
-}
-
-open class ModalTransition: Transition, UIViewControllerTransitioningDelegate {
+open class ModalTransition: NSObject, DismissableTransition, UIViewControllerTransitioningDelegate {
   // MARK: - Properties
   
+  public private(set) weak var fromViewController: UIViewController?
   private let transitionStyle: UIModalTransitionStyle
   private let presentationStyle: UIModalPresentationStyle
   
   // MARK: - Inits
   
-  public init(fromViewController: UIViewController?,
+  public init(fromViewController viewController: UIViewController?,
               transitionStyle: UIModalTransitionStyle = .coverVertical,
               presentationStyle: UIModalPresentationStyle = .default) {
+    self.fromViewController = viewController
     self.transitionStyle = transitionStyle
     self.presentationStyle = presentationStyle
-    super.init(fromViewController: fromViewController)
   }
   
-  public override init(fromViewController: UIViewController?, animator: Animator? = nil) {
-    self.transitionStyle = .coverVertical
-    self.presentationStyle = .default
-    super.init(fromViewController: fromViewController, animator: animator)
-  }
+  // MARK: - DismissableTransition
   
-  // MARK: - Transition methods
-  
-  public override func open(_ viewController: UIViewController, animated: Bool, completion: Completion?) {
+  open func present(_ viewController: UIViewController, animated: Bool, completion: Completion?) {
     viewController.transitioningDelegate = self
     viewController.modalTransitionStyle = transitionStyle
     viewController.modalPresentationStyle = presentationStyle
     fromViewController?.present(viewController, animated: animated, completion: completion)
   }
   
-  public override func close(_ viewController: UIViewController, animated: Bool, completion: Completion?) {
-    viewController.dismiss(animated: animated, completion: completion)
+  open func dismiss(_ viewController: UIViewController, animated: Bool, completion: Completion?) {
+    viewController.transitioningDelegate = self
+    viewController.modalTransitionStyle = transitionStyle
+    viewController.modalPresentationStyle = presentationStyle
+    viewController.dismiss(animated: true, completion: completion)
   }
   
   // MARK: - UIViewControllerTransitioningDelegate
   
   open func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-    animator?.isPresenting = true
-    return animator
+    return nil
   }
   
   open func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-    animator?.isPresenting = false
-    return animator
+    return nil
   }
   
   open func interactionControllerForPresentation(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
