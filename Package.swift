@@ -4,12 +4,12 @@
 import PackageDescription
 
 let package = Package(
-  name: "RouteKit",
-  platforms: [.iOS(.v9)],
-  products: [
-    .library(name: "RouteKit", targets: ["RouteKit"])
-  ],
-  targets: [
-    .target(name: "RouteKit")
-  ]
+    name: "RouteKit",
+    platforms: [.iOS(.v9)],
+    products: [
+        .library(name: "RouteKit", targets: ["RouteKit"])
+    ],
+    targets: [
+        .target(name: "RouteKit")
+    ]
 )
