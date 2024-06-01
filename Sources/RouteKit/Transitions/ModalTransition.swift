@@ -56,7 +56,7 @@ open class ModalTransition: NSObject, DismissableTransition, UIViewControllerTra
         viewController.transitioningDelegate = self
         viewController.modalTransitionStyle = transitionStyle
         viewController.modalPresentationStyle = presentationStyle
-        viewController.dismiss(animated: true, completion: completion)
+        viewController.dismiss(animated: animated, completion: completion)
     }
     
     // MARK: - UIViewControllerTransitioningDelegate
