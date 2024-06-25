@@ -65,13 +65,18 @@ open class PushTransition: NSObject, DismissableTransition {
     
     /// Determines whether the interactive pop gesture recognizer should begin.
     ///
-    /// - Parameter gestureRecognizer: The gesture recognizer to check.
+    /// This method evaluates whether the interactive pop gesture recognizer should begin recognizing gestures.
+    /// It checks the current state of the navigation stack to decide if the user can navigate back from the current view controller.
     ///
-    /// - Returns: A Boolean value indicating whether the gesture should begin.
+    /// By default, the implementation checks the number of view controllers in the navigation stack (`viewControllers` array of the navigation controller).
+    /// If there is only one view controller in the stack, the gesture recognizer will be prevented from recognizing gestures to navigate back.
+    ///
+    /// - Parameter gestureRecognizer: The gesture recognizer instance associated with the interactive pop gesture.
+    /// - Returns: `true` if the gesture recognizer should recognize gestures; `false` if gestures should be prevented.
     open func interactivePopGestureRecognizerShouldBegin(
         _ gestureRecognizer: UIGestureRecognizer
     ) -> Bool {
-        return navigationController?.viewControllers.count ?? 0 > 1
+        navigationController?.viewControllers.count ?? 0 > 1
     }
     
     /// Notifies the completion closure after a view controller is shown.
@@ -100,7 +105,7 @@ open class PushTransition: NSObject, DismissableTransition {
         _ navigationController: UINavigationController,
         interactionControllerFor animationController: UIViewControllerAnimatedTransitioning
     ) -> UIViewControllerInteractiveTransitioning? {
-        return nil
+        nil
     }
     
     /// Provides an animation controller for the navigation controller.
@@ -118,7 +123,7 @@ open class PushTransition: NSObject, DismissableTransition {
         from fromVC: UIViewController,
         to toVC: UIViewController
     ) -> UIViewControllerAnimatedTransitioning? {
-        return nil
+        nil
     }
 }
 
@@ -134,7 +139,7 @@ private final class NavigationDelegate: NSObject, UIGestureRecognizerDelegate, U
     
     /// Retrieves the current transition from the transitions array.
     private var currentTransition: PushTransition? {
-        return transitions.allObjects.last as? PushTransition
+        transitions.allObjects.last as? PushTransition
     }
     
     // MARK: - Methods
